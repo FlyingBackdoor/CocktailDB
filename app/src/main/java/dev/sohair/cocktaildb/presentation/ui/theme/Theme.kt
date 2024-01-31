@@ -1,4 +1,4 @@
-package dev.sohair.cocktaildb.ui.theme
+package dev.sohair.cocktaildb.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build

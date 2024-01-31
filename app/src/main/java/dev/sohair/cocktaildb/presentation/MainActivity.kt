@@ -1,4 +1,4 @@
-package dev.sohair.cocktaildb
+package dev.sohair.cocktaildb.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,8 +10,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import dev.sohair.cocktaildb.ui.theme.CocktailDBTheme
+import dagger.hilt.android.AndroidEntryPoint
+import dev.sohair.cocktaildb.presentation.ui.home.HomeScreen
+import dev.sohair.cocktaildb.presentation.ui.theme.CocktailDBTheme
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +25,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
+                    HomeScreen(modifier = Modifier.fillMaxSize())
                 }
             }
         }
