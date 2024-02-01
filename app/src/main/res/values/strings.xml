@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CocktailDB</string>
+    <string name="home_headline">Let\'s eat\nQuality food</string>
+    <string name="text_search">Search</string>
+    <string name="text_near_restaurant">Near Restaurant</string>
+    <string name="cta_see_all">See All</string>
 </resources>

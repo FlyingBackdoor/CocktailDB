@@ -1,6 +1,7 @@
 package dev.sohair.cocktaildb.data.remote
 
 
+import dev.sohair.cocktaildb.data.local.Drink
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -59,4 +60,19 @@ data class DrinkDto(
     val strMeasure9: String?,
     val strTags: String?,
     val strVideo: String?
-)
+){
+    /**
+     * Convert [DrinkDto] type to [Drink]
+     * so it can be easily consume in UI
+     * */
+    fun toDrink(): Drink {
+        return Drink(
+            name = strDrink ?: "",
+            category = strCategory ?: "",
+            iba = strIBA ?: "",
+            imageUrl = strDrinkThumb ?: "",
+            instruction = strInstructions ?: "",
+            glass = strGlass ?: ""
+        )
+    }
+}

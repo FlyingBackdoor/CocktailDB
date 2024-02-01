@@ -5,8 +5,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
+import dev.sohair.cocktaildb.data.local.Drink
+import dev.sohair.cocktaildb.domain.Utils.decodeSlash
 import dev.sohair.cocktaildb.presentation.ui.cocktail_detail.CocktailDetailScreen
 import dev.sohair.cocktaildb.presentation.ui.common.Screen
 import dev.sohair.cocktaildb.presentation.ui.home.HomeScreen
@@ -31,11 +35,31 @@ fun AppNavigation(navController: NavHostController) {
         }
 
         /*Detail Screen*/
-        composable(route = Screen.DetailPage.route) {
+        composable(
+            route = Screen.DetailPage.route + "/{name}/{category}/{imageUrl}/{instruction}",
+            arguments = listOf(
+                navArgument("name") { type = NavType.StringType },
+                navArgument("category") { type = NavType.StringType },
+                navArgument("imageUrl") { type = NavType.StringType },
+                navArgument("instruction") { type = NavType.StringType },
+            )
+        ) { backStackEntry ->
+            var drink: Drink? = null
+            backStackEntry.arguments?.let {
+                drink = Drink(
+                    name = it.getString("name", "").decodeSlash(),
+                    category = it.getString("category", "").decodeSlash(),
+                    imageUrl = it.getString("imageUrl", "").decodeSlash(),
+                    instruction = it.getString("instruction", "").decodeSlash(),
+                    iba = "",
+                    glass = ""
+                )
+            }
             CocktailDetailScreen(
                 modifier = defaultModifier,
                 viewModel = hiltViewModel(),
-                navController = navController
+                navController = navController,
+                drink = drink
             )
         }
     }
