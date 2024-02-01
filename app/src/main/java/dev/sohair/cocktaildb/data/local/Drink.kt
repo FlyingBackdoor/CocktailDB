@@ -2,6 +2,9 @@ package dev.sohair.cocktaildb.data.local
 
 import kotlinx.serialization.Serializable
 
+/**
+ * Drink class will be utilized by UI states
+ * */
 @Serializable()
 data class Drink(
     val name: String,

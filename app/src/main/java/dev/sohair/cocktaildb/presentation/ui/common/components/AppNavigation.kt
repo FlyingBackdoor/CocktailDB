@@ -35,6 +35,10 @@ fun AppNavigation(navController: NavHostController) {
         }
 
         /*Detail Screen*/
+        /*
+        A simple example of nave arguments, splits for redablity
+        Another possible way is to serialize to Json string
+        */
         composable(
             route = Screen.DetailPage.route + "/{name}/{category}/{imageUrl}/{instruction}",
             arguments = listOf(

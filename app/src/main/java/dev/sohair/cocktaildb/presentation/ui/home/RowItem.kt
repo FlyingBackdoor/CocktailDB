@@ -25,6 +25,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 
+/**
+ * Hardcoded composable for demonstration purpose*/
 @Composable
 fun RowItem() {
     Card(

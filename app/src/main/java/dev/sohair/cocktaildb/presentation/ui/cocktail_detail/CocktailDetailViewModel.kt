@@ -4,4 +4,5 @@ import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 class CocktailDetailViewModel: ViewModel() {
+    /*No_OP*/
 }
